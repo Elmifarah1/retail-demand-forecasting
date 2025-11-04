@@ -74,3 +74,11 @@ sns.boxplot(data=df, x='day_of_week', y='sales', order=order, ax=ax, palette='Bl
 ax.set_xlabel("Day of Week")
 ax.set_ylabel("Sales")
 st.pyplot(fig)
+
+st.markdown("---")
+st.subheader("Project Summary")
+st.write("""
+This interactive dashboard visualises sales trends across stores and product families to support retail demand forecasting.  
+It helps identify peak seasons, top-performing product lines, and overall sales behaviour patterns.  
+Insights from this analysis can support data-driven decision-making for stock planning and promotional strategies.
+""")
