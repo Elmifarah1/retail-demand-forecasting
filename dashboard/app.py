@@ -21,3 +21,14 @@ filtered = df[(df['store_nbr'] == store) & (df['family'] == family)]
 
 st.write(f"Selected: Store {store} | Family: {family}")
 st.dataframe(filtered.head())
+
+import matplotlib.pyplot as plt
+
+st.subheader("Sales Over Time")
+
+fig, ax = plt.subplots(figsize=(10, 4))
+ax.plot(filtered['date'], filtered['sales'], color='steelblue')
+ax.set_xlabel("Date")
+ax.set_ylabel("Sales")
+ax.set_title(f"Store {store} – {family}")
+st.pyplot(fig)
