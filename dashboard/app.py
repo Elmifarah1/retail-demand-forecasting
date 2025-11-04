@@ -2,7 +2,9 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(page_title="Retail Demand Forecasting Dashboard", layout="wide")
-st.title("Retail Demand Forecasting Dashboard")
+st.markdown("<h1 style='text-align:center;'>Retail Demand Forecasting Dashboard</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center;'>Built by Elmi Farah · Code Institute Capstone Project</p>", unsafe_allow_html=True)
+st.write("")
 
 @st.cache_data
 def load_data():
