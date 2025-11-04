@@ -32,3 +32,14 @@ ax.set_xlabel("Date")
 ax.set_ylabel("Sales")
 ax.set_title(f"Store {store} – {family}")
 st.pyplot(fig)
+
+st.subheader("Top 10 Product Families by Total Sales")
+
+top_families = (
+    df.groupby('family')['sales']
+      .sum()
+      .sort_values(ascending=False)
+      .head(10)
+)
+
+st.bar_chart(top_families)
