@@ -59,3 +59,16 @@ ax.plot(monthly['month'], monthly['sales'], color='orange')
 ax.set_xlabel("Month")
 ax.set_ylabel("Total Sales")
 st.pyplot(fig)
+
+import seaborn as sns
+
+st.subheader("Sales by Day of Week")
+
+df['day_of_week'] = df['date'].dt.day_name()
+order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+fig, ax = plt.subplots(figsize=(8, 4))
+sns.boxplot(data=df, x='day_of_week', y='sales', order=order, ax=ax, palette='Blues')
+ax.set_xlabel("Day of Week")
+ax.set_ylabel("Sales")
+st.pyplot(fig)
