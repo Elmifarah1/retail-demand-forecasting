@@ -43,3 +43,19 @@ top_families = (
 )
 
 st.bar_chart(top_families)
+
+st.subheader("Monthly Sales Trend")
+
+monthly = (
+    df.assign(month=df['date'].dt.to_period('M').dt.to_timestamp())
+      .groupby('month', as_index=False)['sales']
+      .sum()
+)
+
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(10, 4))
+ax.plot(monthly['month'], monthly['sales'], color='orange')
+ax.set_xlabel("Month")
+ax.set_ylabel("Total Sales")
+st.pyplot(fig)
