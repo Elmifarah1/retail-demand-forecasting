@@ -11,3 +11,13 @@ def load_data():
 df = load_data()
 st.write("Data shape:", df.shape)
 st.dataframe(df.head())
+
+st.sidebar.header("Filters")
+
+store = st.sidebar.selectbox("Select Store", sorted(df['store_nbr'].unique()))
+family = st.sidebar.selectbox("Select Family", sorted(df['family'].unique()))
+
+filtered = df[(df['store_nbr'] == store) & (df['family'] == family)]
+
+st.write(f"Selected: Store {store} | Family: {family}")
+st.dataframe(filtered.head())
