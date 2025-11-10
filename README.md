@@ -75,6 +75,8 @@ plt.title("Daily Sales Over Time")
 plt.xlabel("Date")
 plt.ylabel("Sales")
 
+```
+
 This revealed clear weekly patterns and seasonal spikes, especially around holidays.
 
 ⸻
