@@ -184,6 +184,16 @@ Overall, this project gave me the confidence to handle data from start to finish
 
 ⸻
 
+
+## Deployment
+The dashboard was deployed on **Heroku** through the GitHub connection method.  
+All files were pushed from my main branch, and a smaller sample dataset was used  
+for smoother performance on the free-tier app.  
+Everything else works exactly the same as it does locally.
+
+
+⸻
+
 ### Credits
 	•	Dataset: Kaggle – Store Sales: Time Series Forecasting
 	•	Created by: Elmi Farah - Code Institute – Data Analytics with AI Capstone Project (2025)
