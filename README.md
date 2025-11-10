@@ -84,7 +84,8 @@ This revealed clear weekly patterns and seasonal spikes, especially around holid
 ### Step 4 – Feature Engineering
 
 To capture longer-term trends, I created new features:
-	•	Lag features showing previous sales performance
+
+ 	•	Lag features showing previous sales performance
 	•	Rolling averages to smooth out daily fluctuations
 
 These were saved in /data/processed/train_features.csv and used later in the dashboard.
