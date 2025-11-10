@@ -9,7 +9,7 @@ st.write("")
 
 @st.cache_data(show_spinner="Loading data…")
 def load_data():
-    data_path = Path(__file__).resolve().parent.parent / "data" / "processed" / "train_features.csv.gz"
+    data_path = Path(__file__).resolve().parent.parent / "data" / "processed" / "train_features_sample.csv.gz"
     
     if not data_path.exists():
         st.error(f"⚠️ Data file not found at:\n{data_path}")
