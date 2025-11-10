@@ -7,6 +7,11 @@ The aim was to explore and analyse a large real-world dataset to understand reta
 Using **Python**, **Pandas**, **Matplotlib**, **Seaborn**, and **Streamlit**, I processed raw sales data and created an interactive dashboard that helps visualise store and product performance.  
 The project demonstrates how data analysis can reveal useful business insights and support better decision-making.
 
+🌐 **Live Dashboard:** [Check it out on Heroku](https://retail-demand-forecasting-3c6fb0a301e9.herokuapp.com/)
+
+This project is now live and fully deployed using Heroku.  
+It runs my Streamlit dashboard with a smaller sample of the dataset so it loads faster online.
+
 ---
 
 ## Dataset
