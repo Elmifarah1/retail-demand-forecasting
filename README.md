@@ -65,6 +65,7 @@ Some of the things I looked at include:
 
 I used **Matplotlib** and **Seaborn** to create line charts, bar charts, and box plots.  
 For example:
+
 ```python
 plt.figure(figsize=(10,4))
 plt.plot(df['date'], df['sales'])
@@ -72,86 +73,41 @@ plt.title("Daily Sales Over Time")
 
 This helped identify clear weekly and seasonal trends, with visible spikes around holidays.
 
-4. Feature Engineering
-
+### 4. Feature Engineering
 To capture longer-term trends, I created lag features and moving averages:
-	•	Lag features showed previous sales behaviour.
-	•	Rolling averages smoothed out short-term fluctuations.
+- **Lag features** showed previous sales behaviour.  
+- **Rolling averages** smoothed out short-term fluctuations.  
 
-These new features were saved in /data/processed/train_features.csv for later use.
+These new features were saved in `/data/processed/train_features.csv` for later use.
 
-5. Findings and Insights
+---
 
+### 5. Findings and Insights
 From the analysis, I found:
-	•	Sales followed strong weekly and seasonal cycles.
-	•	Families such as GROCERY I, BEVERAGES, and BREAD/BAKERY consistently had higher sales.
-	•	Promotions increased sales, but their impact varied by store and product.
-	•	December had clear spikes due to holiday periods.
+- Sales followed strong weekly and seasonal cycles.  
+- Families such as **GROCERY I**, **BEVERAGES**, and **BREAD/BAKERY** consistently had higher sales.  
+- Promotions increased sales, but their impact varied by store and product.  
+- **December** had clear spikes due to holiday periods.  
 
-⸻
+These findings highlighted how promotions and seasonality drive retail demand, helping inform stock planning and marketing decisions.
 
-Streamlit Dashboard
+---
 
-After completing the notebook, I built a simple Streamlit dashboard to make the findings more interactive.
+## Streamlit Dashboard
+After completing the notebook, I built a simple **Streamlit** dashboard to make the findings more interactive and accessible.
 
-File: dashboard/app.py
+**File:** `dashboard/app.py`
 
-Features:
-	•	Dropdown filters for Store and Product Family
-	•	Line chart showing daily sales trends
-	•	Bar chart displaying top-performing families
-	•	Box plot comparing weekly sales behaviour
-	•	Monthly summary of total sales
+**Key Features:**
+- Dropdown filters for **Store** and **Product Family**  
+- Line chart showing daily sales trends  
+- Bar chart displaying top-performing families  
+- Box plot comparing weekly sales behaviour  
+- Monthly summary of total sales  
 
-This allows anyone to explore the dataset visually without needing to use Jupyter.
+This allows anyone to explore the dataset visually without needing to use Jupyter Notebook.
 
-To run the dashboard:
-
+**To run the dashboard:**
+```bash
 cd dashboard
 streamlit run app.py
-
-Ethical Considerations
-
-The dataset contains no personal or sensitive data.
-All information is aggregated at store level and used for educational purposes only.
-Raw Kaggle files were excluded from version control in line with good data-handling practices.
-
-⸻
-
-Reproducibility
-
-Anyone can reproduce the project by following these steps:
-
-# 1. Clone the repository
-git clone https://github.com/Elmifarah1/retail-demand-forecasting.git
-
-# 2. Set up a virtual environment
-cd retail-demand-forecasting
-python3 -m venv .venv
-source .venv/bin/activate
-
-# 3. Install requirements
-pip install -r requirements.txt
-
-# 4. Run the notebook
-jupyter lab
-
-# 5. Launch the dashboard
-cd dashboard
-streamlit run app.py
-
-This project brought together everything I learned on the course.
-It helped me develop stronger skills in:
-	•	Cleaning and working with large datasets.
-	•	Analysing data using Python and Pandas.
-	•	Visualising results using Matplotlib and Seaborn.
-	•	Building an interactive dashboard in Streamlit.
-	•	Managing my workflow through Git and GitHub.
-
-If I had more time, I’d extend the project by adding forecasting models and comparing predictions to real sales.
-Overall, this project has improved my confidence in working end-to-end with data — from raw files to meaningful insights.
-
-Credits
-	•	Dataset: Kaggle – Store Sales: Time Series Forecasting
-	•	Developed by: Elmi Farah
-Code Institute – Data Analytics with AI Capstone Project (2025)
