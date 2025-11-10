@@ -165,19 +165,18 @@ streamlit run app.py
 
 This project allowed me to put my data analysis skills into practice and work through a full end-to-end workflow.
 I improved in:
-	- Ceaning and managing large datasets
-	•	Analysing data using Pandas
+	
+    •	Ceaning and managing large datasets
+    •	Analysing data using Pandas
 	•	Visualising insights with Matplotlib and Seaborn
 	•	Creating an interactive dashboard with Streamlit
 	•	Using Git and GitHub for version control
 
-If I had more time, I would add forecasting models such as ARIMA or XGBoost to predict future sales.
+If I had more time, I would add forecasting models to predict future sales.
 Overall, this project helped me gain confidence in applying what I learned to real-world data.
 
 ⸻
 
 ### Credits
 	•	Dataset: Kaggle – Store Sales: Time Series Forecasting
-	•	Created by: Elmi Farah
-
-Code Institute – Data Analytics with AI Capstone Project (2025)
+	•	Created by: Elmi Farah - Code Institute – Data Analytics with AI Capstone Project (2025)
