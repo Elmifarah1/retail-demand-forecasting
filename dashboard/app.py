@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from pathlib import Path
 
 st.set_page_config(page_title="Retail Demand Forecasting Dashboard", layout="wide")
 st.markdown("<h1 style='text-align:center;'>Retail Demand Forecasting Dashboard</h1>", unsafe_allow_html=True)
@@ -8,7 +9,8 @@ st.write("")
 
 @st.cache_data
 def load_data():
-    return pd.read_csv('../data/processed/train_features.csv', parse_dates=['date'])
+     data_path = Path(__file__).resolve().parent.parent / "data" / "processed" / "train_features.csv"
+     return pd.read_csv(data_path, parse_dates=['date'])
 
 df = load_data()
 st.write("Data shape:", df.shape)
