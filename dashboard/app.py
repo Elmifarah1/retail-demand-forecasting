@@ -7,13 +7,15 @@ st.markdown("<h1 style='text-align:center;'>Retail Demand Forecasting Dashboard<
 st.markdown("<p style='text-align:center;'>Built by Elmi Farah · Code Institute Capstone Project</p>", unsafe_allow_html=True)
 st.write("")
 
-@st.cache_data
+@st.cache_data(show_spinner="Loading data…")
 def load_data():
-    data_path = (
-        Path(__file__).resolve().parent.parent
-        / "data" / "processed" / "train_features.csv.gz"
-    )
-    return pd.read_csv(data_path, parse_dates=['date']) 
+    data_path = Path(__file__).resolve().parent.parent / "data" / "processed" / "train_features.csv.gz"
+    
+    if not data_path.exists():
+        st.error(f"⚠️ Data file not found at:\n{data_path}")
+        st.stop()
+    
+    return pd.read_csv(data_path, parse_dates=['date'], compression='gzip')
 
 df = load_data()
 st.write("Data shape:", df.shape)
