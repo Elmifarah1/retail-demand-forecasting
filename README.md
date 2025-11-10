@@ -94,7 +94,8 @@ These were saved in /data/processed/train_features.csv and used later in the das
 ### Step 5 – Key Findings
 
 From the analysis, I found that:
-	•	Sales followed consistent weekly and seasonal cycles
+
+    •	Sales followed consistent weekly and seasonal cycles
 	•	Families like GROCERY I, BEVERAGES, and BREAD/BAKERY were top performers
 	•	Promotions had a positive effect, though it varied by product and store
 	•	Sales consistently spiked in December due to holiday demand
