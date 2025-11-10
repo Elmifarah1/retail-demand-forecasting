@@ -81,7 +81,7 @@ This revealed clear weekly patterns and seasonal spikes, especially around holid
 
 ⸻
 
-Step 4 – Feature Engineering
+### Step 4 – Feature Engineering
 
 To capture longer-term trends, I created new features:
 	•	Lag features showing previous sales performance
@@ -91,7 +91,7 @@ These were saved in /data/processed/train_features.csv and used later in the das
 
 ⸻
 
-Step 5 – Key Findings
+### Step 5 – Key Findings
 
 From the analysis, I found that:
 	•	Sales followed consistent weekly and seasonal cycles
@@ -132,7 +132,7 @@ Ethical Considerations
 
 ⸻
 
-Reproducibility
+### Reproducibility
 
 To reproduce this project:
 
@@ -157,8 +157,7 @@ cd dashboard
 streamlit run app.py 
 
 ```
-
-Reflection
+### Reflection
 
 This project allowed me to put my data analysis skills into practice and work through a full end-to-end workflow.
 I improved in:
@@ -173,7 +172,7 @@ Overall, this project helped me gain confidence in applying what I learned to re
 
 ⸻
 
-Credits
+### Credits
 	•	Dataset: Kaggle – Store Sales: Time Series Forecasting
 	•	Created by: Elmi Farah
 Code Institute – Data Analytics with AI Capstone Project (2025)
