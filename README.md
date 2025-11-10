@@ -85,8 +85,8 @@ This revealed clear weekly patterns and seasonal spikes, especially around holid
 
 To capture longer-term trends, I created new features:
 
- 	•	Lag features showing previous sales performance
-	•	Rolling averages to smooth out daily fluctuations
+ 	•	Extra columns showing sales from previous days (to capture short-term trends)
+	•	Moving averages to highlight overall patterns
 
 These were saved in /data/processed/train_features.csv and used later in the dashboard.
 
@@ -97,7 +97,7 @@ These were saved in /data/processed/train_features.csv and used later in the das
 From the analysis, I found that:
 
     •	Sales followed consistent weekly and seasonal cycles
-	•	Families like GROCERY I, BEVERAGES, and BREAD/BAKERY were top performers
+	•	Families like GROCERY, BEVERAGES, and BREAD/BAKERY were top performers
 	•	Promotions had a positive effect, though it varied by product and store
 	•	Sales consistently spiked in December due to holiday demand
 
@@ -165,8 +165,7 @@ streamlit run app.py
 ```
 ### Reflection
 
-This project allowed me to put my data analysis skills into practice and work through a full end-to-end workflow.
-I improved in:
+This project allowed me to put my data analysis skills into practice and work through a full end-to-end workflow — from collecting and cleaning data, all the way to building a working dashboard. I Improved in: 
 	
     •	Ceaning and managing large datasets
     •	Analysing data using Pandas
@@ -174,8 +173,9 @@ I improved in:
 	•	Creating an interactive dashboard with Streamlit
 	•	Using Git and GitHub for version control
 
-If I had more time, I would add forecasting models to predict future sales.
-Overall, this project helped me gain confidence in applying what I learned to real-world data.
+This project also taught me the importance of planning, version control, and breaking tasks into smaller steps.  
+If I had more time, I’d add simple forecasting models to predict future sales and compare them to the real results.  
+Overall, this project gave me the confidence to handle data from start to finish and present it in a way that makes sense to both technical and non-technical audiences.
 
 ⸻
 
