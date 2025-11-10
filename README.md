@@ -110,11 +110,14 @@ After completing the analysis, I built an interactive dashboard using Streamlit 
 File: dashboard/app.py
 
 Main features:
-	•	Dropdown filters for Store and Product Family
+
+    •	Dropdown filters for Store and Product Family
 	•	Line chart of daily sales trends
 	•	Bar chart for top-performing families
 	•	Box plot showing weekly sales patterns
 	•	Monthly summary of total sales
+
+    
 
 This dashboard allows users to interact with the data and visualise trends without using Jupyter.
 
