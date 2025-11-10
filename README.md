@@ -71,6 +71,8 @@ plt.figure(figsize=(10,4))
 plt.plot(df['date'], df['sales'])
 plt.title("Daily Sales Over Time")
 
+```
+
 This helped identify clear weekly and seasonal trends, with visible spikes around holidays.
 
 ### 4. Feature Engineering
