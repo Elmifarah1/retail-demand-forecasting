@@ -125,10 +125,12 @@ cd dashboard
 streamlit run app.py
 ```
 
-Ethical Considerations
-	•	The dataset contains no personal or sensitive information
+### Ethical Considerations
+
+    •	The dataset contains no personal or sensitive information
 	•	All data is aggregated by store and used for educational purposes
 	•	Original Kaggle files are excluded from version control for good data-handling practice
+
 
 ⸻
 
@@ -154,14 +156,13 @@ jupyter lab
 
 # 5. Launch the dashboard
 cd dashboard
-streamlit run app.py 
-
+streamlit run app.py
 ```
 ### Reflection
 
 This project allowed me to put my data analysis skills into practice and work through a full end-to-end workflow.
 I improved in:
-	•	Cleaning and managing large datasets
+	- Ceaning and managing large datasets
 	•	Analysing data using Pandas
 	•	Visualising insights with Matplotlib and Seaborn
 	•	Creating an interactive dashboard with Streamlit
@@ -175,4 +176,5 @@ Overall, this project helped me gain confidence in applying what I learned to re
 ### Credits
 	•	Dataset: Kaggle – Store Sales: Time Series Forecasting
 	•	Created by: Elmi Farah
+
 Code Institute – Data Analytics with AI Capstone Project (2025)
