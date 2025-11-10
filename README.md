@@ -120,8 +120,10 @@ This dashboard allows users to interact with the data and visualise trends witho
 
 To run the dashboard:
 
+```bash
 cd dashboard
 streamlit run app.py
+```
 
 Ethical Considerations
 	•	The dataset contains no personal or sensitive information
@@ -133,6 +135,8 @@ Ethical Considerations
 Reproducibility
 
 To reproduce this project:
+
+```bash
 
 # 1. Clone the repository
 git clone https://github.com/Elmifarah1/retail-demand-forecasting.git
@@ -150,7 +154,9 @@ jupyter lab
 
 # 5. Launch the dashboard
 cd dashboard
-streamlit run app.py
+streamlit run app.py 
+
+```
 
 Reflection
 
