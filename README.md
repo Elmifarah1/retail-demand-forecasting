@@ -1,30 +1,30 @@
 # 🛒 Retail Demand Forecasting – Capstone Project
 
 ## Overview
-This project was created as part of my final capstone for the Code Institute’s *Data Analytics with AI* programme.  
-The goal was to work with a large, real-world dataset to explore, clean, analyse, and visualise retail sales data in a meaningful way.  
+This project was developed as part of my final capstone for the Code Institute’s *Data Analytics with AI* programme.  
+The aim was to explore and analyse a large real-world dataset to understand retail sales performance, trends, and seasonality.  
 
-I used **Python**, **Pandas**, **Matplotlib**, **Seaborn**, and **Streamlit** to go from raw data to an interactive dashboard that allows users to explore sales performance across different stores and product categories.  
-The project shows how data analytics can be used to uncover sales trends, identify seasonality, and help businesses make informed decisions.
+Using **Python**, **Pandas**, **Matplotlib**, **Seaborn**, and **Streamlit**, I processed raw sales data and created an interactive dashboard that helps visualise store and product performance.  
+The project demonstrates how data analysis can reveal useful business insights and support better decision-making.
 
 ---
 
 ## Dataset
-The data comes from [Kaggle – Store Sales: Time Series Forecasting](https://www.kaggle.com/competitions/store-sales-time-series-forecasting).  
-It contains around **3 million rows** covering daily sales from 2013 to 2017 across multiple stores and product families.
+The dataset is from [Kaggle – Store Sales: Time Series Forecasting](https://www.kaggle.com/competitions/store-sales-time-series-forecasting).  
+It contains around **3 million rows** of daily sales from 2013 to 2017 across multiple stores and product families.
 
-**Files used:**
+**Files included:**
 - `train.csv` – main file with daily sales for each store and product family  
-- `stores.csv` – details about each store  
-- `transactions.csv` – store-level transactions data  
-- `holidays_events.csv` – national holidays and events  
+- `stores.csv` – store information  
+- `transactions.csv` – number of transactions per store  
+- `holidays_events.csv` – holidays and special events  
 - `oil.csv` – oil prices used as an external factor  
 
 **Key columns:**
 - `date` – date of sale  
 - `store_nbr` – store number  
-- `family` – product family (category)  
-- `sales` – sales amount  
+- `family` – product category  
+- `sales` – total daily sales  
 - `onpromotion` – number of items on promotion  
 
 ---
@@ -41,75 +41,131 @@ It contains around **3 million rows** covering daily sales from 2013 to 2017 acr
 
 ## Project Process
 
-### 1. Data Loading and Inspection
-I started by loading the `train.csv` file in Jupyter Notebook.  
-I checked its structure, data types, and size using commands such as `df.info()` and `df.describe()`.  
-This gave me a clear understanding of what the data looked like before cleaning.
+### Step 1 – Loading and Exploring the Data
+I began by loading the `train.csv` file into Jupyter Notebook to understand its structure and contents.  
+Basic commands such as `df.info()` and `df.describe()` helped identify column types, missing data, and overall dataset size.
 
-### 2. Data Cleaning
-The next step was preparing the data for analysis:
-- Converted the `date` column to a proper datetime format.  
-- Sorted the data by store, family, and date.  
-- Checked for missing values and replaced them with zeros.  
-- Saved the cleaned file to `/data/processed/train_clean.csv`.
+---
 
-The raw data was quite large, so I made sure only processed versions were included in the repository for easier management.
+### Step 2 – Data Cleaning
+Before analysis, I cleaned and prepared the dataset:
+- Converted the `date` column to a datetime format  
+- Sorted by store, family, and date  
+- Replaced missing values with zeros  
+- Saved a clean version to `/data/processed/train_clean.csv`  
 
-### 3. Exploratory Data Analysis (EDA)
-I then explored sales patterns and behaviour over time.  
-Some of the things I looked at include:
-- Overall sales trends across the years.  
-- Which product families performed best.  
-- How sales varied by store.  
-- The relationship between promotions and sales.  
+This made the data ready for analysis and ensured consistency across all files.
 
-I used **Matplotlib** and **Seaborn** to create line charts, bar charts, and box plots.  
-For example:
+---
+
+### Step 3 – Exploratory Data Analysis (EDA)
+I explored sales trends and relationships between different variables.  
+The main areas I looked at were:
+- Overall sales performance over time  
+- Product families with the highest sales  
+- Store-level differences  
+- The effect of promotions on sales  
+
+I used **Matplotlib** and **Seaborn** to create visuals such as line charts, bar charts, and box plots.  
 
 ```python
 plt.figure(figsize=(10,4))
 plt.plot(df['date'], df['sales'])
 plt.title("Daily Sales Over Time")
+plt.xlabel("Date")
+plt.ylabel("Sales")
 
-```
+This revealed clear weekly patterns and seasonal spikes, especially around holidays.
 
-This helped identify clear weekly and seasonal trends, with visible spikes around holidays.
+⸻
 
-### 4. Feature Engineering
-To capture longer-term trends, I created lag features and moving averages:
-- **Lag features** showed previous sales behaviour.  
-- **Rolling averages** smoothed out short-term fluctuations.  
+Step 4 – Feature Engineering
 
-These new features were saved in `/data/processed/train_features.csv` for later use.
+To capture longer-term trends, I created new features:
+	•	Lag features showing previous sales performance
+	•	Rolling averages to smooth out daily fluctuations
 
----
+These were saved in /data/processed/train_features.csv and used later in the dashboard.
 
-### 5. Findings and Insights
-From the analysis, I found:
-- Sales followed strong weekly and seasonal cycles.  
-- Families such as **GROCERY I**, **BEVERAGES**, and **BREAD/BAKERY** consistently had higher sales.  
-- Promotions increased sales, but their impact varied by store and product.  
-- **December** had clear spikes due to holiday periods.  
+⸻
 
-These findings highlighted how promotions and seasonality drive retail demand, helping inform stock planning and marketing decisions.
+Step 5 – Key Findings
 
----
+From the analysis, I found that:
+	•	Sales followed consistent weekly and seasonal cycles
+	•	Families like GROCERY I, BEVERAGES, and BREAD/BAKERY were top performers
+	•	Promotions had a positive effect, though it varied by product and store
+	•	Sales consistently spiked in December due to holiday demand
 
-## Streamlit Dashboard
-After completing the notebook, I built a simple **Streamlit** dashboard to make the findings more interactive and accessible.
+These insights help highlight how seasonality and promotions influence customer buying behaviour.
 
-**File:** `dashboard/app.py`
+⸻
 
-**Key Features:**
-- Dropdown filters for **Store** and **Product Family**  
-- Line chart showing daily sales trends  
-- Bar chart displaying top-performing families  
-- Box plot comparing weekly sales behaviour  
-- Monthly summary of total sales  
+Streamlit Dashboard
 
-This allows anyone to explore the dataset visually without needing to use Jupyter Notebook.
+After completing the analysis, I built an interactive dashboard using Streamlit to make the findings easier to explore.
 
-**To run the dashboard:**
-```bash
+File: dashboard/app.py
+
+Main features:
+	•	Dropdown filters for Store and Product Family
+	•	Line chart of daily sales trends
+	•	Bar chart for top-performing families
+	•	Box plot showing weekly sales patterns
+	•	Monthly summary of total sales
+
+This dashboard allows users to interact with the data and visualise trends without using Jupyter.
+
+To run the dashboard:
+
 cd dashboard
 streamlit run app.py
+
+Ethical Considerations
+	•	The dataset contains no personal or sensitive information
+	•	All data is aggregated by store and used for educational purposes
+	•	Original Kaggle files are excluded from version control for good data-handling practice
+
+⸻
+
+Reproducibility
+
+To reproduce this project:
+
+# 1. Clone the repository
+git clone https://github.com/Elmifarah1/retail-demand-forecasting.git
+
+# 2. Set up a virtual environment
+cd retail-demand-forecasting
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run the notebook
+jupyter lab
+
+# 5. Launch the dashboard
+cd dashboard
+streamlit run app.py
+
+Reflection
+
+This project allowed me to put my data analysis skills into practice and work through a full end-to-end workflow.
+I improved in:
+	•	Cleaning and managing large datasets
+	•	Analysing data using Pandas
+	•	Visualising insights with Matplotlib and Seaborn
+	•	Creating an interactive dashboard with Streamlit
+	•	Using Git and GitHub for version control
+
+If I had more time, I would add forecasting models such as ARIMA or XGBoost to predict future sales.
+Overall, this project helped me gain confidence in applying what I learned to real-world data.
+
+⸻
+
+Credits
+	•	Dataset: Kaggle – Store Sales: Time Series Forecasting
+	•	Created by: Elmi Farah
+Code Institute – Data Analytics with AI Capstone Project (2025)
