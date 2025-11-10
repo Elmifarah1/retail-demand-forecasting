@@ -1,72 +1,157 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# 🛒 Retail Demand Forecasting – Capstone Project
 
-## Template Instructions
+## Overview
+This project was created as part of my final capstone for the Code Institute’s *Data Analytics with AI* programme.  
+The goal was to work with a large, real-world dataset to explore, clean, analyse, and visualise retail sales data in a meaningful way.  
 
-Welcome,
+I used **Python**, **Pandas**, **Matplotlib**, **Seaborn**, and **Streamlit** to go from raw data to an interactive dashboard that allows users to explore sales performance across different stores and product categories.  
+The project shows how data analytics can be used to uncover sales trends, identify seasonality, and help businesses make informed decisions.
 
-This is the Code Institute student template for the Data Analytics capstone project. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+---
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+## Dataset
+The data comes from [Kaggle – Store Sales: Time Series Forecasting](https://www.kaggle.com/competitions/store-sales-time-series-forecasting).  
+It contains around **3 million rows** covering daily sales from 2013 to 2017 across multiple stores and product families.
 
-## How to use this repo
+**Files used:**
+- `train.csv` – main file with daily sales for each store and product family  
+- `stores.csv` – details about each store  
+- `transactions.csv` – store-level transactions data  
+- `holidays_events.csv` – national holidays and events  
+- `oil.csv` – oil prices used as an external factor  
 
-1. Use this template to create your GitHub project repo. Click the **Use this template** button, then click **Create a new repository**.
+**Key columns:**
+- `date` – date of sale  
+- `store_nbr` – store number  
+- `family` – product family (category)  
+- `sales` – sales amount  
+- `onpromotion` – number of items on promotion  
 
-1. Copy the URL of your repository to your clipboard.
+---
 
-1. In VS Code, select **File** -> **Open Folder**.
+## Tools and Libraries
+| Purpose | Tools Used |
+|----------|-------------|
+| Data analysis | Python, Pandas, NumPy |
+| Visualisation | Matplotlib, Seaborn, Plotly |
+| Dashboard | Streamlit |
+| Development | Jupyter Notebook, VS Code, Git, GitHub |
 
-1. Select your `vscode-projects` folder, then click the **Select Folder** button on Windows, or the **Open** button on Mac.
+---
 
-1. From the top menu in VS Code, select **Terminal** > **New Terminal** to open the terminal.
+## Project Process
 
-1. In the terminal, type `git clone` followed by the URL of your GitHub repository. Then hit **Enter**. This command will download all the files in your GitHub repository into your vscode-projects folder.
+### 1. Data Loading and Inspection
+I started by loading the `train.csv` file in Jupyter Notebook.  
+I checked its structure, data types, and size using commands such as `df.info()` and `df.describe()`.  
+This gave me a clear understanding of what the data looked like before cleaning.
 
-1. In VS Code, select **File** > **Open Folder** again.
+### 2. Data Cleaning
+The next step was preparing the data for analysis:
+- Converted the `date` column to a proper datetime format.  
+- Sorted the data by store, family, and date.  
+- Checked for missing values and replaced them with zeros.  
+- Saved the cleaned file to `/data/processed/train_clean.csv`.
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click **Select Folder**.
+The raw data was quite large, so I made sure only processed versions were included in the repository for easier management.
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate from each other. You need to create your virtual environment, also called a venv, and then ensure that it is activated any time you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select **Command Palette** to open the VS Code command palette.
+### 3. Exploratory Data Analysis (EDA)
+I then explored sales patterns and behaviour over time.  
+Some of the things I looked at include:
+- Overall sales trends across the years.  
+- Which product families performed best.  
+- How sales varied by store.  
+- The relationship between promotions and sales.  
 
-1. In the command palette, type: *create environment* and select **Python: Create Environment…**
+I used **Matplotlib** and **Seaborn** to create line charts, bar charts, and box plots.  
+For example:
+```python
+plt.figure(figsize=(10,4))
+plt.plot(df['date'], df['sales'])
+plt.title("Daily Sales Over Time")
 
-1. Choose **Venv** from the dropdown list.
+This helped identify clear weekly and seasonal trends, with visible spikes around holidays.
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+4. Feature Engineering
 
-1. **DO NOT** click the box next to `requirements.txt`, as you need to do more steps before you can install your dependencies. Click **OK**.
+To capture longer-term trends, I created lag features and moving averages:
+	•	Lag features showed previous sales behaviour.
+	•	Rolling averages smoothed out short-term fluctuations.
 
-1. You will see a `.venv` folder appear in the file explorer pane to show that the virtual environment has been created.
+These new features were saved in /data/processed/train_features.csv for later use.
 
-1. **Important**: Note that the `.venv` folder is in the `.gitignore` file so that Git won't track it.
+5. Findings and Insights
 
-1. Return to the terminal by clicking on the TERMINAL tab, or click on the **Terminal** menu and choose **New Terminal** if no terminal is currently open.
+From the analysis, I found:
+	•	Sales followed strong weekly and seasonal cycles.
+	•	Families such as GROCERY I, BEVERAGES, and BREAD/BAKERY consistently had higher sales.
+	•	Promotions increased sales, but their impact varied by store and product.
+	•	December had clear spikes due to holiday periods.
 
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
+⸻
 
- ```console
- pip3 install -r requirements.txt
- ```
+Streamlit Dashboard
 
-1. Open the `jupyter_notebooks` directory, and click on the notebook you want to open.
+After completing the notebook, I built a simple Streamlit dashboard to make the findings more interactive.
 
-1. Click the **kernel** button and choose **Python Environments**.
+File: dashboard/app.py
 
-Note that the kernel says `Python 3.12.8` as it inherits from the venv, so it will be Python-3.12.8 if that is what is installed on your PC. To confirm this, you can use the command below in a notebook code cell.
+Features:
+	•	Dropdown filters for Store and Product Family
+	•	Line chart showing daily sales trends
+	•	Bar chart displaying top-performing families
+	•	Box plot comparing weekly sales behaviour
+	•	Monthly summary of total sales
 
-```console
-! python --version
-```
+This allows anyone to explore the dataset visually without needing to use Jupyter.
 
-## Deployment Reminders
+To run the dashboard:
 
-* Set the `.python-version` Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version that closest matches what you used in this project.
-* The project can be deployed to Heroku using the following steps.
+cd dashboard
+streamlit run app.py
 
-1. Log in to Heroku and create an App
-2. At the **Deploy** tab, select **GitHub** as the deployment method.
-3. Select your repository name and click **Search**. Once it is found, click **Connect**.
-4. Select the branch you want to deploy, then click **Deploy Branch**.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the `.slugignore` file.
+Ethical Considerations
+
+The dataset contains no personal or sensitive data.
+All information is aggregated at store level and used for educational purposes only.
+Raw Kaggle files were excluded from version control in line with good data-handling practices.
+
+⸻
+
+Reproducibility
+
+Anyone can reproduce the project by following these steps:
+
+# 1. Clone the repository
+git clone https://github.com/Elmifarah1/retail-demand-forecasting.git
+
+# 2. Set up a virtual environment
+cd retail-demand-forecasting
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 3. Install requirements
+pip install -r requirements.txt
+
+# 4. Run the notebook
+jupyter lab
+
+# 5. Launch the dashboard
+cd dashboard
+streamlit run app.py
+
+This project brought together everything I learned on the course.
+It helped me develop stronger skills in:
+	•	Cleaning and working with large datasets.
+	•	Analysing data using Python and Pandas.
+	•	Visualising results using Matplotlib and Seaborn.
+	•	Building an interactive dashboard in Streamlit.
+	•	Managing my workflow through Git and GitHub.
+
+If I had more time, I’d extend the project by adding forecasting models and comparing predictions to real sales.
+Overall, this project has improved my confidence in working end-to-end with data — from raw files to meaningful insights.
+
+Credits
+	•	Dataset: Kaggle – Store Sales: Time Series Forecasting
+	•	Developed by: Elmi Farah
+Code Institute – Data Analytics with AI Capstone Project (2025)
