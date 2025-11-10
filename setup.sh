@@ -1,8 +1,13 @@
-mkdir -p ~/.streamlit/
-echo "\
-[server]\n\
-headless = true\n\
-port = $PORT\n\
-enableCORS = false\n\
-\n\
-" > ~/.streamlit/config.toml
+cat > setup.sh << 'EOF'
+mkdir -p ~/.streamlit
+cat > ~/.streamlit/config.toml << EOC
+[server]
+headless = true
+port = $PORT
+enableCORS = false
+enableXsrfProtection = false
+address = "0.0.0.0"
+EOC
+EOF
+
+chmod +x setup.sh
